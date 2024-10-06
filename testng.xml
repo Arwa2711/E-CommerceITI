@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+    <suite name="All Test Suite">
+        <test verbose="2" name="C:/Users/Ozymandias/Desktop/E-CommerceITI">
+            <classes>
+                <class name="tests.AddProductToCard">
+                    <methods>
+                        <include name="addProductToCard"/>
+                        <include name="ViewProductsDetails"/>
+                        <include name="addProductToCardInViewPage"/>
+                    </methods>
+                </class>
+                <class name="tests.CartTests">
+                    <methods>
+                        <include name="checkTheProductName"/>
+                        <include name="checkTheProductPrice"/>
+                    </methods>
+                </class>
+                <class name="tests.CheckoutPageTest">
+                    <methods>
+                        <include name="checkItemTitle"/>
+                        <include name="checkItemPrice"/>
+                    </methods>
+                </class>
+                <class name="tests.CompleteOrderPageTest">
+                    <methods>
+                        <include name="checkSuccessMessage"/>
+                    </methods>
+                </class>
+                <class name="tests.LogOutTest">
+                    <methods>
+                        <include name="lgOut"/>
+                    </methods>
+                </class>
+                <class name="tests.LoginTest">
+                    <methods>
+                        <include name="loginTestCase1"/>
+                        <include name="loginTestCase2"/>
+                        <include name="loginTestCase3"/>
+                        <include name="loginTestCase4"/>
+                    </methods>
+                </class>
+                <class name="tests.OrderHistoryTest">
+                    <methods>
+                        <include name="checkItemInHistory"/>
+                        <include name="checkItemInHistoryInvalid"/>
+                    </methods>
+                </class>
+                <class name="tests.SignUpTest">
+                    <methods><include name="signUpTestCase1"/>
+                        <include name="signUpTestCase2"/>
+                        <include name="signUpTestCase3"/>
+                        <include name="signUpTestCase4"/>
+                        <include name="signUpWithInvalidPhoneNumber"/>
+                        <include name="SuccessfulRegistrationTest"/>
+                    </methods>
+                </class>
+                <class name="tests.ViewProductDetailsTest">
+                    <methods>
+                        <include name="chickTheProductName"/>
+                        <include name="chickTheProductPrice"/>
+                        <include name="chickTheProductDescription"/>
+                    </methods>
+                </class>
+            </classes>
+
+        </test>
+    </suite>

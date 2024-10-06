@@ -6,7 +6,7 @@ import iti.pages.ViewProductPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class ViewProductDetails extends BaseTest{
+public class ViewProductDetailsTest extends BaseTest{
     ViewProductPage viewProductPage;
 
     @BeforeClass
@@ -17,7 +17,7 @@ public class ViewProductDetails extends BaseTest{
     String expectedResult;
     String actualResult;
 
-    @Test(priority = 0, description = "Chick the product name")
+    @Test(description = "Chick the product name")
     public void chickTheProductName(){
         expectedResult="ZARA COAT 3";
         LoginPage loginPage =new LoginPage(driver);

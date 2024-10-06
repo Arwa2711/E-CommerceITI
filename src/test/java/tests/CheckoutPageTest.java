@@ -5,7 +5,6 @@ import iti.pages.CheckouPage;
 import iti.pages.HomePage;
 import iti.pages.LoginPage;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class CheckoutPageTest extends BaseTest{
@@ -14,14 +13,6 @@ public class CheckoutPageTest extends BaseTest{
     @BeforeClass
     public void init(){
         checkouPage = new CheckouPage(driver);
-    }
-
-    String expectedResult;
-    String actualResult;
-
-
-    @BeforeTest
-    public void setUp(){
         LoginPage loginPage =new LoginPage(driver);
         loginPage.login("arwa@gmail.com","Aa@12345");
 
@@ -32,6 +23,10 @@ public class CheckoutPageTest extends BaseTest{
         CartPage CartPage =new CartPage(driver);
         CartPage.goToCheckoutPage();
     }
+
+    String expectedResult;
+    String actualResult;
+
 
     @Test
     public void checkItemTitle() {

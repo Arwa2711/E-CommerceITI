@@ -2,7 +2,6 @@ package tests;
 
 import iti.pages.*;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class OrderHistoryTest extends  BaseTest{
@@ -11,17 +10,13 @@ public class OrderHistoryTest extends  BaseTest{
     @BeforeClass
     public void init(){
         historyPage = new HistoryPage(driver);
-    }
-
-
-    @BeforeTest
-    public void setUp(){
         LoginPage loginPage =new LoginPage(driver);
         loginPage.login("arwa@gmail.com","Aa@12345");
 
         HomePage homePage =new HomePage(driver);
         homePage.goToHistoryPage();
     }
+
 
     @Test
     public void checkItemInHistory() {

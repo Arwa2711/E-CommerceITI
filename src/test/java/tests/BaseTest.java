@@ -3,8 +3,7 @@ package tests;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 import org.testng.asserts.Assertion;
 
 import java.time.Duration;
@@ -14,7 +13,7 @@ public class BaseTest {
     Assertion hardAssert = new Assertion();
     String baseurl = "https://rahulshettyacademy.com/client";
 
-    @BeforeTest
+    @BeforeClass
     public void beforeTest() {
 
         WebDriverManager.edgedriver().setup();
@@ -25,7 +24,7 @@ public class BaseTest {
 
     }
 
-    @AfterTest
+    @AfterClass
     public void ShutDown() {
         driver.close();
     }
