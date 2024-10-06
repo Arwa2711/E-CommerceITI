@@ -42,6 +42,9 @@ public class HomePage extends BasePage{
     @FindBy(css = ".btn.btn-custom[routerlink='/dashboard/cart']")
     WebElement cartField;
 
+    @FindBy(css = ".btn.btn-custom[routerlink='/dashboard/myorders']")
+    WebElement historyPage;
+
     public String addProductToCard() {
         waitForElementVisibility(cardField);
         AddTCardField.click();
@@ -75,10 +78,20 @@ public class HomePage extends BasePage{
     public void goToCartPage() {
         waitForElementVisibility(cartField);
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
         cartField.click();
+    }
+
+    public void goToHistoryPage() {
+        waitForElementVisibility(historyPage);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        historyPage.click();
     }
 }

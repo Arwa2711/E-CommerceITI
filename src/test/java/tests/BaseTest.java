@@ -1,28 +1,28 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import iti.pages.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.asserts.Assertion;
-import org.testng.asserts.SoftAssert;
+
+import java.time.Duration;
 
 public class BaseTest {
     WebDriver driver;
-
-    SoftAssert softAssert = new SoftAssert();
     Assertion hardAssert = new Assertion();
     String baseurl = "https://rahulshettyacademy.com/client";
 
     @BeforeTest
     public void beforeTest() {
 
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
+        WebDriverManager.edgedriver().setup();
+        driver = new EdgeDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.navigate().to(baseurl);
+
     }
 
     @AfterTest

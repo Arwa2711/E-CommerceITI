@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CardPage extends BasePage{
+public class CartPage extends BasePage{
 
-    public CardPage(WebDriver driver) {
+    public CartPage(WebDriver driver) {
         super(driver);
     }
 
@@ -19,14 +19,20 @@ public class CardPage extends BasePage{
     @FindBy(css = "div[class='prodTotal cartSection'] p")
     WebElement productPriceField;
 
+    @FindBy(css = ".subtotal button")
+    WebElement checkoutButton;
 
-    public String chickProductName() {
+
+    public String checkProductName() {
         waitForElementVisibility(myCardField);
         return productNameField.getText();
     }
 
-    public String chickProductPrice() {
+    public String checkProductPrice() {
         waitForElementVisibility(myCardField);
         return productPriceField.getText();
+    }
+    public void goToCheckoutPage(){
+        checkoutButton.click();
     }
 }

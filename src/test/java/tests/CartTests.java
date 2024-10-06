@@ -1,40 +1,44 @@
 package tests;
 
-import iti.pages.CardPage;
+import iti.pages.CartPage;
 import iti.pages.HomePage;
 import iti.pages.LoginPage;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class CardTests extends BaseTest{
-    CardPage cardPage;
+public class CartTests extends BaseTest{
+    CartPage cartPage;
 
     @BeforeClass
     public void setUp(){
-        cardPage= new CardPage(driver);
+        cartPage= new CartPage(driver);
     }
 
     String expectedResult;
     String actualResult;
 
-    @Test(priority = 0, description = "Chick the product name")
-    public void chickTheProductName(){
-        expectedResult="ZARA COAT 3";
+    @BeforeTest
+    public void loginAndGoToCart(){
         LoginPage loginPage =new LoginPage(driver);
         loginPage.login("arwa@gmail.com","Aa@12345");
 
         HomePage homePage =new HomePage(driver);
         homePage.addProductToCard();
         homePage.goToCartPage();
+    }
 
-        actualResult= cardPage.chickProductName();
+    @Test(description = "Chick the product name")
+    public void checkTheProductName(){
+        expectedResult="ZARA COAT 3";
+        actualResult= cartPage.checkProductName();
         hardAssert.assertEquals(actualResult,expectedResult);
     }
 
-    @Test(dependsOnMethods = "chickTheProductName",priority = 1, description = "Chick the product price")
-    public void chickTheProductPrice(){
+    @Test(dependsOnMethods = "checkTheProductName",priority = 1, description = "checkTheProductPrice")
+    public void checkTheProductPrice(){
         expectedResult="$ 31500";
-        actualResult= cardPage.chickProductPrice();
+        actualResult= cartPage.checkProductPrice();
         hardAssert.assertEquals(actualResult,expectedResult);
     }
 }
