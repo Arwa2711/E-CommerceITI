@@ -16,7 +16,7 @@ public class LoginTest extends BaseTest{
     String actualResult;
 
     @Test(priority = 0, description = "Login with empty user email and password")
-    public void loginTestCase1(){
+    public void LoginWithEmptyUserEmailAndPassword(){
         expectedResult="*Password is required";
         loginPage.login("","");
         actualResult= loginPage.requiredPassword();
@@ -24,7 +24,7 @@ public class LoginTest extends BaseTest{
     }
 
     @Test(priority = 1, description = "Login with valid user email and invalid password")
-    public void loginTestCase2(){
+    public void LoginWithValidUserEmailAndInvalidPassword(){
         expectedResult="Incorrect email or password.";
          loginPage.login("arwa@gmail.com","27C5B@");
          actualResult= loginPage.wrongData();
@@ -33,7 +33,7 @@ public class LoginTest extends BaseTest{
     }
 
     @Test(priority = 2, description = "Login with invalid user email and valid password")
-    public void loginTestCase3(){
+    public void LoginWithInvalidUserEmailAndValidPassword(){
         expectedResult="Incorrect email or password.";
         loginPage.login("arwa@gmail","Aa@12345");
         actualResult= loginPage.wrongData();
@@ -42,7 +42,7 @@ public class LoginTest extends BaseTest{
     }
 
     @Test(priority = 3,groups = "login", description = "Login with valid user email and valid password")
-    public void loginTestCase4(){
+    public void loginSuccessfully(){
         expectedResult="HOME";
         loginPage.login("arwa@gmail.com","Aa@12345");
         actualResult= loginPage.homeField();

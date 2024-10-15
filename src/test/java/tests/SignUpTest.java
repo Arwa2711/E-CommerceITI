@@ -16,7 +16,7 @@ public class SignUpTest extends BaseTest{
     String actualResult;
 
     @Test(priority = 0, description = "Registration with Missing Required Fields")
-    public void signUpTestCase1(){
+    public void RegistrationWithMissingRequiredFields(){
         expectedResult="*First Name is required";
         SignUpPage.signUp("","","",0,"","");
         actualResult= SignUpPage.requiredFirstName();
@@ -24,16 +24,16 @@ public class SignUpTest extends BaseTest{
     }
 
     @Test(priority = 1, description = "sign up with short name and valid data in other fields")
-    public void signUpTestCase2(){
+    public void signUpWithShortName(){
         expectedResult="*First Name must be 3 or more character long";
-        SignUpPage.signUp("aa","aaaaa","a@gmail.com",01111111111,"Aa@1212","Aa@1212");
+        SignUpPage.signUp("aa","aaaaa","aaaaaaaaaaa@gmail.com",01111111111,"Aa@1212","Aa@1212");
         actualResult= SignUpPage.shortFirstName();
         hardAssert.assertEquals(actualResult,expectedResult);
         SignUpPage.clearSignUpForm();
     }
 
     @Test(priority = 2, description = "sign up with invalid email address")
-    public void signUpTestCase3() {
+    public void signUpWithInvalidEmailAddress() {
         expectedResult = "*Enter Valid Email";
         SignUpPage.signUp("TestUser", "Last Name", "invalid_email", 1234567890, "password123", "password123");
         actualResult= SignUpPage.invalidEmail();
@@ -42,7 +42,7 @@ public class SignUpTest extends BaseTest{
     }
 
     @Test(priority = 3, description = "sign up with mismatched passwords")
-    public void signUpTestCase4() {
+    public void signUpWithMismatchedPasswords() {
         expectedResult = "Password and Confirm Password must match with each other.";
         SignUpPage.signUp("TestUser", "Last Name", "test@example.com", 1234567890, "password123", "password456");
         actualResult= SignUpPage.confirmPassword();
