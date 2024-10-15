@@ -25,7 +25,11 @@ public class ViewProductDetailsTest extends BaseTest{
 
         HomePage homePage =new HomePage(driver);
         homePage.viewProduct();
-
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         actualResult= viewProductPage.viewProductName();
         hardAssert.assertEquals(actualResult,expectedResult);
     }

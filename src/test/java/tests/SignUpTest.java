@@ -64,7 +64,7 @@ public class SignUpTest extends BaseTest{
     @Test(priority = 5, description = "Successful Registration Test")
     public void SuccessfulRegistrationTest() {
         expectedResult = "Account Created Successfully";
-        SignUpPage.signUp("TestUser", "Last Name", "aa@aabbb.com", 1111111111, "password@A123", "password@A123");
+        SignUpPage.signUp("TestUser", "Last Name", "aaa@aabbb.com", 1111111111, "password@A123", "password@A123");
         actualResult= SignUpPage.SuccessfulRegistration();
         hardAssert.assertEquals(actualResult, expectedResult);
     }
